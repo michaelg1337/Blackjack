@@ -11,9 +11,11 @@ void Dealer::initialize(Deck &indeck) {
   dhand.push_back(indeck.draw());
 }
 
-void Dealer::nextMove() {
-  if (calculateScore() < 17) {
-    
+void Dealer::dealerturn(Deck &indeck) {
+  while (calculateScore() < 17) {
+    cout << "Dealer draws\n";
+    dhand.push_back(indeck.draw());
+    printHand();
   }
 }
 
@@ -58,6 +60,10 @@ int Dealer::calculateScore() {
 
 void Dealer::printScore() {
   cout << "Dealer's score: " << calculateScore() << endl;
+}
+
+Player::Player() {
+  money = 100;
 }
 
 void Player::initialize(Deck &indeck) {
@@ -145,4 +151,16 @@ void Player::split(Deck &indeck){
 
 void Player::printScore() {
   cout << "Player's score: " << calculateScore() << endl;
+}
+
+int Player::bet() {
+  cout << "You have $" << money << ". How much would you like to bet?\n";
+  int betamount;
+  cin >> betamount;
+  money -= betamount;
+  return betamount;
+}
+
+void Player::winner(int moneywon) {
+  money += moneywon;
 }

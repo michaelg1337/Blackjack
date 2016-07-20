@@ -31,6 +31,8 @@ void Deck::shuffle() {
 }
 
 card_t Deck::draw() {
+  if (vdeck.size() == 0)
+    shuffle();
   int picker = rand()%vdeck.size();
   card_t output = vdeck[picker];
   vdeck.erase(vdeck.begin()+picker);

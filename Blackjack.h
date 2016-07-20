@@ -13,7 +13,7 @@ class Dealer {
   vector<card_t> dhand;
  public:
   void initialize(Deck &indeck);
-  void nextMove();
+  void dealerturn(Deck &indeck);
   void printHand();
   int calculateScore();
   void printScore();
@@ -22,7 +22,9 @@ class Dealer {
 class Player {
  private:
   vector<card_t> phand;
+  int money;
  public:
+  Player();
   bool turn;
   void initialize(Deck &indeck);
   void printHand();
@@ -33,6 +35,8 @@ class Player {
   void doubledown(Deck &indeck);
   void split(Deck &indeck);
   void printScore();
+  int bet();
+  void winner(int moneywon);
 };
 
 #endif
