@@ -45,7 +45,7 @@ int Dealer::calculateScore() {
     return score;
   else {
     while (aces != 0) {
-      if (score + aces * 11 < 21) {
+      if (score + aces * 11 <= 21) {
 	score += aces * 11;
 	return score;
       }
@@ -99,7 +99,7 @@ int Player::calculateScore() {
     return score;
   else {
     while (aces != 0) {
-      if (score + aces * 11 < 21) {
+      if (score + aces * 11 <= 21) {
 	score += aces * 11;
 	return score;
       }
